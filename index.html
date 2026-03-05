@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mahitha Balachandran Sheeja| Robotics and Autonomous Driving Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --dark-bg: linear-gradient(180deg, #0b1020, #05070f);
+      --light-bg: #ffffff;
+      --text-dark: #0f172a;
+      --text-light: #e5e7eb;
+      --muted-light: #94a3b8;
+      --muted-dark: #475569;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ---------- LEFT SIDEBAR ---------- */
+    .sidebar {
+      width: 320px;
+      background:
+        linear-gradient(rgba(5,7,15,0.70), rgba(5,7,15,0.75)),
+        url("sidebar.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--text-light);
+      padding: 50px 30px;
+      position: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+
+    .sidebar h1 { font-size: 22px; margin-bottom: 6px; }
+    .sidebar h3 { font-size: 14px; font-weight: 400; color: var(--muted-light); margin-bottom: 20px; }
+    .sidebar .edu { font-size: 13px; color: var(--muted-light); line-height: 1.6; }
+
+    .socials { margin-top: auto; padding-top: 30px; }
+    .socials a { color: var(--muted-light); text-decoration: none; margin: 0 10px; font-size: 14px; }
+    .socials a:hover { color: white; }
+
+    /* ---------- RIGHT CONTENT ---------- */
+    .content {
+      margin-left: 320px;
+      padding: 80px 100px;
+      background: var(--light-bg);
+      width: calc(100% - 320px);
+    }
+
+    h2 { font-size: 32px; margin-bottom: 25px; color: var(--text-dark); }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted-dark);
+    }
+
+    .full-width-text {
+      max-width: 100%;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 26px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      background: #f8fafc;
+    }
+
+    .resume-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    hr { margin: 70px 0; border: none; border-top: 1px solid var(--border); }
+
+    /* ---------- EXPERIENCE ---------- */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .experience-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 20px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .experience-card img {
+      max-width: 120px;
+      max-height: 50px;
+      object-fit: contain;
+    }
+
+    /* ---------- GRID LAYOUT ---------- */
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .box-item {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .box-item h3, .box-item h4 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      color: #0f172a;
+      text-align: center;
+    }
+
+    .box-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background: #000;
+    }
+
+    .lab-box img {
+      height: 6cm !important;
+    }
+
+    .lab-intro {
+      max-width: 900px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+      color: #4b5563;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .box-item ul { padding-left: 18px; margin: 0; color: #475569; font-size: 14.5px; }
+    .box-item li { margin-bottom: 8px; line-height: 1.5; }
+
+    /* ---------- SKILLS ---------- */
+    .skills-section { margin-top: 80px; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .skill-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px 16px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .skill-card img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      margin-bottom: 14px;
+    }
+
+    .skill-card p {
+      font-size: 15px;
+      font-weight: 500;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 1100px) {
+      .grid-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar { position: relative; width: 100%; height: auto; }
+      .content { margin-left: 0; width: 100%; padding: 40px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+  <img src="profile2.png" class="profile-pic">
+  <h1>Devadas Vijayan Sheela</h1>
+  <h3>Robotics & Autonomous Systems Engineer</h3>
+  <div class="edu">
+    M.Sc. Electromobility<br>
+    FAU Erlangen–Nürnberg<br>
+    Germany<br>
+    Expected May 2026
+  </div>
+</aside>
+
+<main class="content">
+
+<section id="about">
+  <h2>About Me</h2>
+  <p class="full-width-text">
+    Hello! I am Devadas Vijayan Sheela, a Master’s student in Electromobility at Friedrich-Alexander-Universität Erlangen–Nürnberg (FAU), Germany, specializing in Artificial Intelligence, Autonomous Systems, and Sustainable Mobility. I have over two years of hands-on experience in robotics, and I am currently working part-time as a Robotics Research Assistant at the University of Technology Nuremberg (UTN), where I contribute to research activities in robotics and AI.
+
+My interests lie in AI-driven robotics, autonomous navigation, and robotic manipulation. I enjoy working with both software and hardware, and as a hobby, I maintain a small personal robotics lab at home. I am always open to collaboration.
+  </p>
+
+  <!-- ✅ RESUME BUTTON RESTORED -->
+  <a href="project/CV_devadas.pdf" class="resume-btn" download>Download Resume</a>
+</section>
+</section>
+
+<hr>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="experience-grid">
+    <a href="https://www.utn.de/en/" target="_blank" class="experience-card"><img src="experience/utn.png"></a>
+    <a href="https://www.fraunhofer.de/en.html" target="_blank" class="experience-card"><img src="experience/fraunhofer.png"></a>
+    <a href="https://www.faps.fau.de/" target="_blank" class="experience-card"><img src="experience/faps.png"></a>
+    <a href="https://www.fau.eu/" target="_blank" class="experience-card"><img src="experience/fau.png"></a>
+  </div>
+</section>
+
+  <hr>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid-layout">
+
+      <div class="box-item">
+        <h3>Assistive Robot Simulation & Navigation</h3>
+        <img src="project/isaac_sim_nav1.gif">
+        <p><strong>TOOLS & PLATFORMS: · ROS 2 · ZED 2i · Isaac Sim · Nav2 Stack</strong></p>
+        <ul>
+          <li>Developed URDF robot models from CAD assemblies and validated multibody dynamics in NVIDIA Isaac Sim.</li>
+<li>Integrated a ZED 2i depth camera for perception and depth-based navigation using ROS 2 Nav2.</li>
+<li>Implemented autonomous indoor navigation with real-time obstacle avoidance.</li>
+
+        </ul>
+      </div>
+
+      <div class="box-item">
+        <h3>Benchmarking 3D Bin-Picking Algorithms</h3>
+        <img src="project/bin_picking.gif">
+        <p><strong>TOOLS & PLATFORMS: · MuJoCo · Franka Emika · Optimization</strong></p>
+        <ul>
+          <li>Benchmarked and evaluated 3D bin-picking algorithms in simulation using MuJoCo.</li>
+          <li>Conducted structured evaluation experiments with the Franka Emika robot.</li>
+          <li>Analyzed grasp success rate, robustness, and performance metrics.</li>
+        </ul>
+      </div>
+
+      <div class="box-item">
+        <h3>Assistive Robot Object Picking (Ongoing)</h3>
+        <img src="project/masterthesis.gif">
+        <p><strong>TOOLS & PLATFORMS: · Isaac Lab · ROS 2 · VLA · RL</strong></p>
+        <ul>
+          <li>Developed an assistive mobile manipulator in NVIDIA Isaac Sim and Isaac Lab.</li>
+          <li>Performed teleoperation experiments to validate manipulation pipelines.</li>
+          <li>Integrate Vision–Language–Action (VLA) models with autonomous navigation.</li>
+          <li>Study sim-to-real transfer using real hardware experiments.</li>
+        </ul>
+      </div>
+
+      <div class="box-item">
+        <h3>Autonomous Drone Flight & Real-time object detection</h3>
+        <img src="project/drone.gif">
+        <p><strong>TOOLS & PLATFORMS: · YOLOv3 · Intel RealSense · OpenCV</strong></p>
+        <ul>
+          <li>Implemented a YOLOv3-based object detection pipeline for autonomous drones.</li>
+          <li>Used depth data from Intel RealSense for spatial validation .</li>
+          <li>Validated performance using ROS bag testing and flight experiments.</li>
+        </ul>
+      </div>
+
+      <div class="box-item">
+        <h3>Interactive Image Segmentation (SAM-2)</h3>
+        <div class="media-stack">
+          <img src="project/grocessry_items.gif">
+          <img src="project/object_picking.gif">
+        </div>
+        <p><strong>TOOLS & PLATFORMS: · SAM-2 · Hugging Face · Human-in-the-Loop</strong></p>
+        <ul>
+          <li>Implemented interactive image segmentation using SAM-2 for FRANKA.</li>
+          <li>Enabled human-in-the-loop object selection for robotic grasping.</li>
+          <li>Demonstrated segmentation on multiple grocery items.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="home-lab">
+    <h2>Home Robotics Lab & Prototyping</h2>
+    <p class="full-width-text">
+    At home, I maintain a compact yet highly functional robotics lab where I design, build,
+    and validate robotic systems from the ground up. The lab is equipped with an
+    <strong>Anycubic 3D printer</strong>, <strong>embedded electronics and soldering tools</strong>,
+    and <strong>NVIDIA Jetson developer kits</strong>, enabling rapid prototyping that bridges
+    mechanical design, embedded control, and AI-driven perception. This environment allows
+    me to iterate quickly from concept to working hardware while maintaining strong
+    integration with ROS 2–based software pipelines.
+  </p>
+    <div class="grid-layout">
+      <div class="box-item lab-box">
+        <h4>Personal Robotics Prototyping Lab</h4>
+        <img src="lab/home_lab.gif">
+<p><strong>TOOLS & ACTIVITIES: 3D Printer · Embedded Systems · Soldering · NVIDIA Jetson Dev Kit</strong></p>
+<ul>
+  <li>Prototyped custom robotic chassis through iterative 3D design and printing.</li>
+  <li>Configured NVIDIA Jetson platforms for embedded AI and robotics workloads.</li>
+  <li>Developed and integrated microcontroller-based subsystems through hardware programming and soldering.</li>
+</ul>
+      </div>
+<div class="box-item lab-box">
+  <h4>Embedded Electronics & Soldering Experiments</h4>
+  <img src="lab/me.gif">
+  <ul>
+    <li>Designed and assembled embedded circuits using ESP32, TB6612 motor drivers, and regulated power supplies.</li>
+    <li>Performed manual soldering, hardware bring-up, and systematic debugging.</li>
+    <li>Developed miniature wheeled robots and simple manipulators for experimental validation.</li>
+  </ul>
+</div>
+
+    </div>
+    
+  </section>
+
+
+  <hr>
+
+  
+<section class="skills-section" id="skills">
+  <h2>Tools, Frameworks & Platforms</h2>
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <img src="icons/ros.png" alt="ROS 2">
+      <p>ROS 2 · Gazebo · Python</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="icons/isaac_sim.png" alt="Isaac Sim">
+      <p>Isaac Sim · Isaac Lab</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="icons/fusion .png" alt="Fusion 360">
+      <p>Autodesk Fusion 360</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="icons/micro.png" alt="Microcontrollers">
+      <p>Microcontrollers (ESP32)</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="icons/jetson.png" alt="NVIDIA Jetson">
+      <p>NVIDIA Jetson Dev Kit</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="icons/intel.png" alt="Depth Camera">
+      <p>ZED · Intel Depth Camera</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="icons/matlab.png" alt="MATLAB">
+      <p>MATLAB</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+</body>
+</html>
+
