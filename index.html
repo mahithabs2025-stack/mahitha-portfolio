@@ -7,6 +7,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   
+  
 <style>
 
 :root {
@@ -202,6 +203,54 @@ margin-bottom:10px;
 font-weight:500;
 margin:0;
 }
+/* ---------- MOBILE RESPONSIVE FIX ---------- */
+
+@media (max-width: 900px) {
+
+body{
+flex-direction:column;
+}
+
+/* Sidebar becomes top section */
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+padding:40px 20px;
+}
+
+/* Content fills screen */
+.content{
+margin-left:0;
+width:100%;
+padding:40px 25px;
+}
+
+/* Experience cards stack */
+.experience-grid{
+grid-template-columns:1fr;
+}
+
+/* Projects stack vertically */
+.grid-layout{
+grid-template-columns:1fr;
+}
+
+/* Skills become 2 per row */
+.skills-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+/* Reduce large images */
+.box-item img{
+height:200px;
+}
+
+h2{
+font-size:26px;
+}
+
+}  
 
 </style>
 </head>
